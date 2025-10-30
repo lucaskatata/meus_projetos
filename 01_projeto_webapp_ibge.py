@@ -46,7 +46,7 @@ def main():
     st.header(f'Nome escolhido: {nome}')
     col1, col2 = st.columns([0.3, 0.7])
     with col1:
-        st.write('Frequencia por década')
+        st.write('Frequência por década')
         st.dataframe(df)
     with col2:
         st.write(f'Evolução no tempo')
