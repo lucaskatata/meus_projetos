@@ -20,12 +20,14 @@ def pegar_nome_por_decada(nome):
     nome_por_decada = fazer_request(url=url)
     if not nome_por_decada:
         return {}
-    dict_decadas = {}
-    for dados in nome_por_decada[0]['res']:
-        decada = dados['periodo']
-        quantidade = dados['frequencia']
-        dict_decadas[decada] = quantidade
-    return dict_decadas
+    # for dados in nome_por_decada[0]['res']:
+    #     decada = dados['periodo']
+    #     quantidade = dados['frequencia']
+    #     dict_decadas[decada] = quantidade
+    # return dict_decadas
+    resultado = nome_por_decada[0]['res']
+    df = pd.DataFrame(resultado)
+    return df
 
 def main():
     st.title('WebApp Nomes - IBGE')
@@ -35,12 +37,12 @@ def main():
     if not nome:
         st.stop()
     
-    dict_decadas = pegar_nome_por_decada(nome=nome)
-    if not dict_decadas:
-        st.warning(f'Nenhum dado encontrado para o nome: {nome}!')
-        st.stop()   
+    df = pegar_nome_por_decada(nome=nome)
+    # if not df:
+    #     st.warning(f'Nenhum dado encontrado para o nome: {nome}!')
+    #     st.stop()   
     
-    df = pd.DataFrame.from_dict(dict_decadas, orient='index')
+    
     st.header(f'Nome escolhido: {nome}')
     col1, col2 = st.columns([0.3, 0.7])
     with col1:
@@ -48,7 +50,10 @@ def main():
         st.dataframe(df)
     with col2:
         st.write(f'Evolução no tempo')
-        st.line_chart(df)
+        st.line_chart(df,x='periodo', y='frequencia')
     
 if __name__ == '__main__':
     main()
+
+
+# %%
