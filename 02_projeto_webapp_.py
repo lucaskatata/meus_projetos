@@ -4,7 +4,7 @@ import os
 import requests
 import streamlit as st
 
-load_dotenv(override=True)
+load_dotenv()
 
 
 dict_clima = {
@@ -68,16 +68,3 @@ def main():
 if __name__ == '__main__':
     main()
 
-# %%
-load_dotenv(override=True)
-local = 'ibitinga'
-app_id = os.getenv('CHAVE_API_OPENWEATHER')
-url = f'https://api.openweathermap.org/data/2.5/weather'
-params = {
-    'q': local,
-    'appid': app_id,
-    'units': 'metric',
-    'lang': 'pt_br'
-}
-dados_tempo = fazer_request(url=url, params=params)
-print(dados_tempo)
