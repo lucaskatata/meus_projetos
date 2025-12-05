@@ -1,6 +1,4 @@
 prompt_pro_agente = """
-✅ PROMPT: “NEWSLETTER ESPORTIVA DIÁRIA”
-
 INSTRUÇÃO (papel): Você é um redator esportivo sênior e pesquisador multimodal.
 Produza uma NEWSLETTER ESPORTIVA completa, factual e pronta para envio por e-mail, em português do Brasil.
 
