@@ -13,7 +13,7 @@ load_dotenv()
 EMAIL_ADDRESS = os.getenv('EMAIL_ADDRESS')
 EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
 DESTINATARIOS = os.getenv('DESTINATARIOS', '')
-HORA_ENVIO = os.getenv('SEND_AT', '')#HH:MM
+HORA_ENVIO = os.getenv('SEND_AT', '')# formato do horário -> HH:MM
 
 def envia_email_tool(assunto, conteudo):
     """Envio de emails"""
